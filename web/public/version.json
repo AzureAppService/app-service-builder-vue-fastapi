@@ -1,0 +1,5 @@
+{
+  "app": "app-service-builder-vue-fastapi-web",
+  "version": "1.0.0",
+  "framework": "Vue 3 with Vite 8"
+}

@@ -1,0 +1,9 @@
+web/node_modules/
+web/dist/
+api/.venv/
+api/__pycache__/
+api/.pytest_cache/
+.env
+.env.*
+!.env.example
+npm-debug.log*
