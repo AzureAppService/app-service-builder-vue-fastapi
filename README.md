@@ -47,7 +47,7 @@ Each component has its own dependencies. There is intentionally no root
   for the endpoint verification script.
 
 The frontend lockfile contains Vue **3.5.43**, Vue Router **5.3.1**, and Vite
-**8.3.1**. The API requirements pin FastAPI **0.115.12** and Uvicorn **0.34.3**.
+**8.3.1**. The API versions are pinned in `api/requirements.txt`.
 Keep the requirements and lockfile rather than updating dependencies during setup.
 
 ## Run locally
@@ -153,6 +153,8 @@ The API tests cover health, identity, JSON echo, filtered request metadata,
 public runtime markers, and missing routes. The integration checks verify
 the manifest, static output, frontend deep links, generated assets, JSON
 endpoints, echo requests, and API 404 responses through the same local origin.
+The framework identity must exactly match the FastAPI version installed in
+the interpreter selected for the API.
 
 Integration tests start loopback-only Uvicorn and Vite preview processes on
 available ports, then stop both. They do not require your manually started

@@ -1,9 +1,9 @@
 import assert from 'node:assert/strict'
-import { spawn } from 'node:child_process'
+import { execFile, spawn } from 'node:child_process'
 import { readdir, readFile } from 'node:fs/promises'
 import test from 'node:test'
 import { fileURLToPath } from 'node:url'
-import { stripVTControlCharacters } from 'node:util'
+import { promisify, stripVTControlCharacters } from 'node:util'
 
 function startServer(t, command, args, options) {
   const child = spawn(command, args, { ...options, stdio: ['ignore', 'pipe', 'pipe'] })
@@ -70,7 +70,16 @@ test('frontend build contains only static assets and public metadata', async () 
 })
 
 test('built frontend and real API share one local origin', { timeout: 30000 }, async (t) => {
-  const apiOrigin = await startServer(t, process.env.PYTHON ?? 'python', [
+  const python = process.env.PYTHON ?? 'python'
+  const { stdout } = await promisify(execFile)(python, [
+    '-c', "from importlib.metadata import version; print(version('fastapi'))",
+  ], {
+    cwd: new URL('./api/', import.meta.url),
+  })
+  const fastapiVersion = stdout.trim()
+  assert.ok(fastapiVersion, 'The API interpreter must report an installed FastAPI version')
+
+  const apiOrigin = await startServer(t, python, [
     '-m', 'uvicorn', 'main:app', '--host', '127.0.0.1', '--port', '0', '--no-access-log',
   ], {
     cwd: new URL('./api/', import.meta.url),
@@ -115,7 +124,7 @@ test('built frontend and real API share one local origin', { timeout: 30000 }, a
     ['/version.json', { app: 'app-service-builder-vue-fastapi-web' }],
     ['/api/health', { status: 'ok', app: 'app-service-builder-vue-fastapi-api' }],
     ['/api/status', { status: 'available', message: 'The Vue frontend reached FastAPI on the same origin.' }],
-    ['/api/version', { app: 'app-service-builder-vue-fastapi-api', framework: 'FastAPI 0.115.12' }],
+    ['/api/version', { app: 'app-service-builder-vue-fastapi-api', framework: `FastAPI ${fastapiVersion}` }],
     ['/api/request', { method: 'GET', path: '/api/request' }],
   ]) {
     const response = await fetch(new URL(path, origin))
