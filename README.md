@@ -14,7 +14,7 @@ are named separately.
 
 A standalone Vue frontend and FastAPI backend deployed as two components behind
 one public hostname with
-[Azure App Service Builder](https://builderapps.azure.com/docs/). Vite builds
+[Azure App Service Builder](https://builder.appservice.azure.com/docs/). Vite builds
 the frontend into static files; Uvicorn runs the Python API separately.
 The browser calls relative `/api` URLs, so no CORS configuration, database,
 external service, or parent workspace is required.
@@ -259,7 +259,7 @@ repository source root, or publish source files as static output.
 
 ## Deploy your fork through Builder Portal
 
-Follow the [Portal quickstart](https://builderapps.azure.com/docs/quickstarts/portal/)
+Follow the [Portal quickstart](https://builder.appservice.azure.com/docs/quickstarts/portal/)
 for your authorized Private Preview environment:
 
 1. Commit and push the sample to the `main` branch of your GitHub repository.
@@ -287,7 +287,7 @@ appears in `/api/health`. Both default to `local` and are intentionally public.
 Configure these values for the API through Portal **Variables**, then deploy
 to apply them to the running application. Saving variables alone does not
 establish that the active deployment changed. See the
-[variables guide](https://builderapps.azure.com/docs/guides/variables/).
+[variables guide](https://builder.appservice.azure.com/docs/guides/variables/).
 The frontend's static version JSON does not read runtime variables.
 
 For code changes, run the tests and production build, commit, and push to your
@@ -303,9 +303,9 @@ Deleting the app does not delete your GitHub repository or local clone.
 
 ## Resources and contributions
 
-- [App Service Builder documentation](https://builderapps.azure.com/docs/)
-- [Sample catalog](https://builderapps.azure.com/docs/samples/)
-- [Manifest guide](https://builderapps.azure.com/docs/guides/builder-yaml/)
+- [App Service Builder documentation](https://builder.appservice.azure.com/docs/)
+- [Sample catalog](https://builder.appservice.azure.com/docs/samples/)
+- [Manifest guide](https://builder.appservice.azure.com/docs/guides/builder-yaml/)
 - [Contributing](CONTRIBUTING.md)
 - [Code of Conduct](.github/CODE_OF_CONDUCT.md)
 - [Security reporting](SECURITY.md)

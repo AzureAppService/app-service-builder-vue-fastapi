@@ -75,6 +75,6 @@ onBeforeUnmount(() => controller.abort())
       <summary>Customize this sample</summary>
       <p>Edit <code>web/src/views/Home.vue</code> in your own fork to change this page. Edit <code>api/main.py</code> to change the API response. Rebuild, test, commit and redeploy your fork; this page does not edit GitHub.</p>
     </details>
-    <p><a href="https://builderapps.azure.com/docs/">App Service Builder documentation</a> · <a href="https://vuejs.org/guide/introduction.html">Vue documentation</a></p>
+    <p><a href="https://builder.appservice.azure.com/docs/">App Service Builder documentation</a> · <a href="https://vuejs.org/guide/introduction.html">Vue documentation</a></p>
   </main>
 </template>
