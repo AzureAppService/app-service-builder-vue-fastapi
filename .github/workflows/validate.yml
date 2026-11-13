@@ -37,7 +37,8 @@ jobs:
       - run: node --test fullstack.test.mjs
       - name: Export exact pinned local-validation prerequisite
         if: github.ref == 'refs/heads/sample-ux-refresh' && runner.os == 'Linux'
-        run: python -m pip download --no-deps --only-binary=:all: fastapi==0.162.2 --dest .validation-prerequisites
+        run: |
+          python -m pip download --no-deps --only-binary=:all: fastapi==0.162.2 --dest .validation-prerequisites
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         if: github.ref == 'refs/heads/sample-ux-refresh' && runner.os == 'Linux'
         with:
