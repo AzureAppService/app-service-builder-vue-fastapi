@@ -52,7 +52,17 @@ onBeforeUnmount(() => controller.abort())
 </script>
 
 <template>
-  <main>
+  <main class="sample-sheet">
+    <header class="sample-header">
+      <RouterLink class="sample-brand" to="/"><img src="/brand/builder.svg" alt="" width="32" height="32">App Service Builder</RouterLink>
+      <nav aria-label="Documentation">
+        <a href="https://vuejs.org/guide/introduction.html">Vue documentation</a>
+        <a href="https://fastapi.tiangolo.com/">FastAPI documentation</a>
+        <a href="https://builder.appservice.azure.com/docs/">App Service Builder documentation</a>
+      </nav>
+    </header>
+    <div class="sample-content">
+    <div class="ecosystem-logo"><img src="/brand/vue.svg" alt="Vue" width="52" height="52"><span>+</span><img class="wordmark" src="/brand/fastapi.svg" alt="FastAPI" width="124" height="52"></div>
     <p class="eyebrow">App Service Builder / Vue + FastAPI</p>
     <h1>Vue and FastAPI are running</h1>
     <p>The static Vue frontend and FastAPI backend share one public hostname.</p>
@@ -73,8 +83,17 @@ onBeforeUnmount(() => controller.abort())
     <pre class="inspection" role="status">{{ inspection }}</pre>
     <details>
       <summary>Customize this sample</summary>
-      <p>Edit <code>web/src/views/Home.vue</code> in your own fork to change this page. Edit <code>api/main.py</code> to change the API response. Rebuild, test, commit and redeploy your fork; this page does not edit GitHub.</p>
+      <p>Edit <code>web/src/views/Home.vue</code> in your own fork to change this page and
+        <code> web/public/brand/family.v1.css</code> for its styles. Edit <code>api/main.py</code>
+        to change the API response. Rebuild, test, commit and redeploy your fork; this page does not edit GitHub.</p>
     </details>
-    <p><a href="https://builder.appservice.azure.com/docs/">App Service Builder documentation</a> · <a href="https://vuejs.org/guide/introduction.html">Vue documentation</a></p>
+    <details>
+      <summary>Logo sources &amp; notices</summary>
+      <p>Unmodified <a href="https://vuejs.org/">Vue artwork</a> and
+        <a href="https://fastapi.tiangolo.com/">FastAPI artwork</a> identify this stack.
+        Vue and FastAPI are trademarks of their respective owners. App Service Builder
+        uses its supplied official mark. No endorsement implied.</p>
+    </details>
+    </div>
   </main>
 </template>

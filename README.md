@@ -4,13 +4,27 @@
 
 ![Vue root page with same-origin status, in-page health and version controls, and customization help, rendered with the real local FastAPI backend](docs/images/sample.png)
 
-Rendered locally from the production Vue build with the real FastAPI backend
+**LOCAL — Microsoft Edge, 1440px desktop, root `/`.**
+Rendered from the production Vue build with the real FastAPI backend
 and the pinned Python dependencies. Local API, full-stack, and desktop/mobile
 browser checks passed; Azure deployment was not contacted or verified.
 The useful page is at `/`. Health and version checks display responses on the
 page rather than navigate to raw endpoints. Expand **Customize this sample**
 for the files to edit in your own fork. App Service Builder and Vue documentation
 are named separately.
+
+The Vue-led split daylight composition preserves same-origin status and
+health/version checks and Vue Router paths. Edit `web/src/views/Home.vue` for
+content and `web/public/brand/family.v1.css` for the visual family; baseline styles
+remain in `web/src/style.css`. FastAPI documentation is separate from Builder guidance.
+
+### Logo provenance
+
+`web/public/brand/builder.svg` is the supplied official App Service Builder mark.
+`vue.svg` is the unmodified [official Vue SVG](https://vuejs.org/logo.svg);
+`fastapi.svg` is the unmodified [official FastAPI SVG](https://fastapi.tiangolo.com/img/logo-margin/logo-teal.svg).
+Vue and FastAPI are trademarks of their respective owners. Logos identify the
+stack; no endorsement is implied.
 
 A standalone Vue frontend and FastAPI backend deployed as two components behind
 one public hostname with
