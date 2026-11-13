@@ -1,5 +1,17 @@
 # App Service Builder: Vue + FastAPI sample
 
+## Local page preview
+
+![Vue root page with same-origin status, in-page health and version controls, and customization help, rendered with a local mock API](docs/images/sample.png)
+
+Rendered locally from the production Vue build with a **browser-preview mock API**.
+This is UI evidence only: the pinned Python dependencies were unavailable during
+capture, and neither FastAPI integration nor Azure deployment was verified.
+The useful page is at `/`. Health and version checks display responses on the
+page rather than navigate to raw endpoints. Expand **Customize this sample**
+for the files to edit in your own fork. App Service Builder and Vue documentation
+are named separately.
+
 A standalone Vue frontend and FastAPI backend deployed as two components behind
 one public hostname with
 [Azure App Service Builder](https://builderapps.azure.com/docs/). Vite builds
