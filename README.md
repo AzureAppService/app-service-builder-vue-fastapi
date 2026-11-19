@@ -72,8 +72,8 @@ Each component has its own dependencies. There is intentionally no root
 - Optional: [PowerShell 7](https://learn.microsoft.com/powershell/scripting/install/installing-powershell)
   for the endpoint verification script.
 
-The frontend lockfile contains Vue **3.5.43**, Vue Router **5.3.1**, and Vite
-**8.3.1**. The API versions are pinned in `api/requirements.txt`.
+The frontend lockfile contains Vue **3.5.45**, Vue Router **5.5.1**, and Vite
+**8.3.8**. The API versions are pinned in `api/requirements.txt`.
 Keep the requirements and lockfile rather than updating dependencies during setup.
 
 ## Run locally
